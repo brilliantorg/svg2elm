@@ -1,3 +1,36 @@
+# BRILLIANT NOTES!!
+
+
+This is used to generate the SVG icons for Bits in the elm code.
+
+The changes / process is kind of janky. Here's what you gotta do:
+
+
+1. Download all the icons as svgs from figma
+  - This will create zip folder with all the icons in their own svg file
+  
+2. `npm run build` this.
+
+3. Run `bin/svg2elm ~/Downloads/icons/* | pbcopy` (on a mac)
+
+4. This will generate the `Bits.Icon.CodeGen` module
+  - Paste your output into the brilliant repo
+  
+5. Now, you'll need corresponding functions and exports in `Bits.Icon`. You can generate those by going to `cli.ts` in this repo and changing `generateModule` to `generateExports` and `generateFunctions` respectively.
+
+6. Go back to step 2! ie. re build, re run, re copy, paste in the appropriate place
+
+
+
+
+
+
+
+
+
+
+
+
 # svg2elm
 
 [![npm version](https://img.shields.io/npm/v/svg2elm.svg)](https://www.npmjs.com/package/svg2elm) [![GitHub license](https://img.shields.io/npm/l/svg2elm)](LICENSE)
