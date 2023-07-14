@@ -1,5 +1,5 @@
 import yargs from "yargs";
-import { generateModule } from "./svg2elm";
+import { generateModule, generateConstructors, generateExports } from "./svg2elm";
 
 const args = yargs
     .usage(
@@ -8,11 +8,7 @@ const args = yargs
     .option("module", {
         alias: "m",
         describe: "The name of the Elm Module to generate"
-    })
-    .demandOption(
-        "module",
-        "Please provide the name of the Elm Module to generate with -m, --module"
-    ).argv;
+    }).argv;
 
 async function run() {
     try {

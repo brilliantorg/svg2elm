@@ -45,6 +45,7 @@
     "typescript": "^3.8.3"
   },
   "dependencies": {
+    "change-case": "^4.1.2",
     "yargs": "^15.3.1"
   }
 }

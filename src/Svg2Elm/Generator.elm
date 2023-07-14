@@ -45,7 +45,7 @@ compileNode attrs node =
                 ++ " (["
                 ++ compileAttributes attributes
                 ++ (if attrs then
-                        "] ++ attrs) "
+                        "]) "
 
                     else
                         "]) "
@@ -77,4 +77,5 @@ compileFunction name code =
     in
     parseToNode fixedCode
         |> Result.map
-            (compileNode True >> (++) (fnName ++ " : List (Attribute msg) -> Svg.Svg msg\n" ++ fnName ++ " attrs = "))
+            (compileNode True >> (++) (fnName ++ " : { color : String } -> Svg.Svg msg\n" ++ fnName ++ " { color } = "))
+        |> Result.map (String.replace "\"fill\" \"black\"" "\"fill\" color")
